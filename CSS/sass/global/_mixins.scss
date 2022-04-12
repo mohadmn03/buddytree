@@ -1,0 +1,81 @@
+//media queries
+@mixin breakpoints($point) {
+  @if ($point == mobile) {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if($point == small) {
+    @media (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  } @else if($point == medium) {
+    @media (min-width: 992px) and (max-width: 1200px) {
+      @content;
+    }
+  } @else if($point == large) {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+//centering
+@mixin centering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+//buttons
+@mixin buttons {
+  color: $white;
+  border: 1px solid;
+  padding: 16px 32px 18px;
+  border-radius: 8px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font: {
+    family: "Nunito";
+    style: normal;
+    weight: 900;
+  }
+}
+//green button
+@mixin greenButton {
+  @include buttons;
+  background-color: $green;
+  border-color: $green;
+  width: 310px;
+}
+//hero h1
+@mixin heading {
+  font: {
+    weight: 800;
+    size: 40px;
+  }
+  line-height: 60.67px;
+  letter-spacing: 0.5px;
+}
+//
+@mixin padd {
+  padding: {
+    top: 20px;
+    bottom: 20px;
+  }
+}
+//
+@mixin centeringTransform {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+//wh
+@mixin wh($width, $height) {
+  width: $width;
+  height: $height;
+}
+//same wh
+@mixin samewh($width) {
+  width: $width;
+  height: $width;
+}

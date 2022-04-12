@@ -1,0 +1,67 @@
+@import "./colors_var";
+@import "./functions";
+@import "./mixins";
+//
+* {
+  box-sizing: border-box;
+  font-family: "Dosis", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+//
+html {
+  scroll-behavior: smooth;
+}
+//
+body::-webkit-scrollbar {
+  width: 5px;
+}
+body::-webkit-scrollbar-track {
+  background-color: #9c9c9c2b;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: $dark-blue;
+}
+//
+%ul-stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+//
+%ahref-stats {
+  text-decoration: none;
+}
+//
+.container {
+  padding: {
+    left: 5.28px;
+    right: 5.28px;
+  }
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  .button-white {
+    &.mobile {
+      display: none;
+    }
+  }
+  @include breakpoints(mobile) {
+    & {
+      padding: {
+        left: 37px;
+        right: 37px;
+      }
+    }
+  }
+  @include breakpoints(small) {
+    width: 750px;
+  }
+  @include breakpoints(medium) {
+    width: 970px;
+  }
+  @include breakpoints(large) {
+    width: 1170px;
+  }
+}
