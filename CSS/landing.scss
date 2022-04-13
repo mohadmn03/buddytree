@@ -375,7 +375,7 @@
     @include breakpoints(mobile) {
       & {
         max-width: 540px;
-        top: 20%;
+        top: 15%;
         left: 90%;
       }
     }
@@ -620,6 +620,28 @@
         bottom: 130px;
       }
       .joining {
+        position: relative;
+        .vrgl {
+          @include wh(358.42px, 305px);
+          position: absolute;
+          top: -90px;
+          left: 45%;
+          opacity: 0.05;
+          @include breakpoints(mobile) {
+            & {
+              @include wh(250px, 214px);
+              top: -70px;
+              left: 40%;
+            }
+          }
+          @include breakpoints(small) {
+            & {
+              @include wh(300px, 250px);
+              top: -40px;
+              left: 40%;
+            }
+          }
+        }
         h2 {
           @include heading;
           color: $blue;
@@ -651,7 +673,7 @@
         flex-wrap: nowrap;
         overflow: hidden;
         padding-top: 60px;
-        @for $i from 1 through 2 {
+        @for $i from 1 through 3 {
           &-#{$i} {
             background-color: $blue;
             color: $white;
@@ -698,9 +720,6 @@
                 text-align: center;
                 margin-right: 5px;
               }
-            }
-            &.mov-to-left {
-              transform: translateX(-100%);
             }
           }
           @include breakpoints(mobile) {
