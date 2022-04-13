@@ -13,49 +13,32 @@ exit.addEventListener("click", () => {
 });
 //end popup
 //start moving to left
-// let rightArrow = document.querySelector(".arrow .arrow-right");
-// let leftArrow = document.querySelector(".arrow .arrow-left");
-// let boxOne = document.querySelector(".third .container .members .boxs .boxs-1");
-// let boxTwo = document.querySelector(".third .container .members .boxs .boxs-2");
-// rightArrow.addEventListener("click", (event) => {
-//   boxOne.classList.add("mov-to-left");
-//   boxTwo.classList.add("mov-to-left");
-// });
-// leftArrow.addEventListener("click", (event) => {
-//   boxOne.classList.remove("mov-to-left");
-//   boxTwo.classList.remove("mov-to-left");
-// });
-//end moving to left
 let rightArrow = document.querySelector(".arrow .arrow-right");
 let leftArrow = document.querySelector(".arrow .arrow-left");
 let boxs = document.querySelectorAll(".third .container .members .boxs .ofm");
-console.log(boxs);
 //
-let moveconf = 0;
-rightArrow.addEventListener("click", (event) => {
-  boxs.forEach((box) => {
-    box.style.cssText = `transform: translateX(${-100 + moveconf}%)`;
-  });
-  for (let i = 0; i < 1; i++) {
-    moveconf -= 100;
-  }
+boxs.forEach((box) => {
+  box.style.transform = "translateX(0%)";
   //
-  if (moveconf === -200) {
-    moveconf = 100;
-  }
+  rightArrow.addEventListener("click", (event) => {
+    if (box.style.transform === "translateX(0%)") {
+      box.style.transform = "translateX(-100%)";
+    } else if (box.style.transform === "translateX(-100%)") {
+      box.style.transform = "translateX(-200%)";
+    } else if (box.style.transform === "translateX(-200%)") {
+      box.style.transform = "translateX(0%)";
+    }
+  });
+  //
+  leftArrow.addEventListener("click", (event) => {
+    if (box.style.transform === "translateX(0%)") {
+      box.style.transform = "translateX(-200%)";
+    } else if (box.style.transform === "translateX(-100%)") {
+      box.style.transform = "translateX(0%)";
+    } else if (box.style.transform === "translateX(-200%)") {
+      box.style.transform = "translateX(-100%)";
+    }
+  });
+  //
 });
-// //
-// moveconf = 0;
-// leftArrow.addEventListener("click", (event) => {
-//   boxs.forEach((box) => {
-//     box.style.cssText = `transform: translateX(${100 + moveconf}%)`;
-//   });
-//   for (let i = 0; i < 1; i++) {
-//     moveconf += 100;
-//   }
-//   //
-//   if (moveconf === 0) {
-//     moveconf = -400;
-//   }
-// });
-// //
+//end moving to left
