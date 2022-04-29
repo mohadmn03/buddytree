@@ -10,7 +10,6 @@ Landing Page
 
 
 
-
 TECH STACK:
 - HTML
 - CSS & SCSS
